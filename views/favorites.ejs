@@ -1,0 +1,26 @@
+<%- include('partials/header') -%>
+<div class="container">
+    <div class="row mt-5">
+
+<div class="col-6">
+    <h2>My Favorite lessons</h2>
+    <ul class="row list-unstyled">
+    <% for(var i=0; i<posts.length; i++) {%>
+      <li class="col-6 justify-content-between mt-5">
+  
+
+          <a href="/post/favoritePost/<%= posts[i]._id%>">
+
+          <h2><%= posts[i].title%></h2>
+          <img class="img-fluid" src="<%= posts[i].image%>">
+        </a>
+      </li>
+    <% } %>
+    </ul>
+    <a class="btn btn-primary" href="/profile">Return to Profile</a>
+
+</div>  
+</div>
+</div>
+</div>
+<%- include('partials/footer') -%>

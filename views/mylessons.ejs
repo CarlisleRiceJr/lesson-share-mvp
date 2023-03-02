@@ -1,0 +1,23 @@
+<%- include('partials/header') -%>
+<div class="container">
+    <div class="row mt-5">
+
+<div class="col-6">
+    <h2>My Shared lessons</h2>
+    <ul class="row list-unstyled">
+    <% for(var i=0; i<posts.length; i++) {%>
+      <li class="col-12 justify-content-between mt-5">
+        <a href="/post/<%= posts[i]._id%>">
+          <h2><%= posts[i].title%></h2>
+          <iframe src="<%= posts[i].image%>" width="400px" height="528px"></iframe>
+         </a>
+      </li>
+    <% } %>
+    </ul>
+    <a class="btn btn-primary" href="/profile">Return to Profile</a>
+
+</div>  
+</div>
+</div>
+</div>
+<%- include('partials/footer') -%>

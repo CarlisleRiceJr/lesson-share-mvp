@@ -1,0 +1,100 @@
+<%- include('partials/header') -%>
+
+
+<!-- Main -->
+<div id="main" class="wrapper style1">
+  <div class="container">
+    <header class="major">
+      <h2>Shared Lessons</h2>
+      <p>Explore lessons for various subjects including math, english, science, social studies, special education and more!</p>    
+    </header>
+
+    <!-- Content -->
+   
+      <section id="content lessons">
+       <img class="image fit" src="images/new_teacher.jpeg" alt="new teacher" />
+        <h3>Explore lesson plans and materials for K-12</h3>
+        <p>Save time while enriching your student's learning by using lessons created by veteran teachers.</p>
+      
+        <div class="box alt">
+          <div class="row gtr-uniform">
+              <section class="col-4 col-6-medium col-12-xsmall">
+                  <span class="icon solid alt major fa-puzzle-piece"></span>
+                  <h3>Special Education</h3>
+                  <ul class="row list-unstyled">
+                    <% for(var i=0; i<special_education.length; i++) {%>
+                      <li>
+                        <a href="/post/<%= special_education[i]._id%>">
+                            <h2 class="lessons"><%= special_education[i].title%></h2>
+                        </a>
+                      </li>
+                    <% } %>  
+                    </ul>              </section>
+              <section class="col-4 col-6-medium col-12-xsmall">
+                  <span class="icon solid alt major fa-book-open"></span>
+                  <h3>English Language Arts</h3>
+                  <ul class="row list-unstyled">
+                    <% for(var i=0; i<english.length; i++) {%>
+                      <li>
+                        <a href="/post/<%= english[i]._id%>">
+                            <h2 class="lessons"><%= english[i].title%></h2>
+                        </a>
+                      </li>
+                    <% } %>
+                    </ul>                </section>
+              <section class="col-4 col-6-medium col-12-xsmall">
+                  <span class="icon solid alt major fa-calculator"></span>
+                  <h3>Math</h3>
+                  <ul class="row list-unstyled">
+                    <% for(var i=0; i<math.length; i++) {%>
+                      <li>
+                        <a href="/post/<%= math[i]._id%>">
+                            <h2 class="lessons"><%= math[i].title%></h2>
+                        </a>
+                      </li>
+                    <% } %>   
+                    </ul>              </section>
+              <section class="col-4 col-6-medium col-12-xsmall">
+                  <span class="icon solid alt major fa-flask"></span>
+                  <h3>Science</h3>
+                  <ul class="row list-unstyled">
+                    <% for(var i=0; i<math.length; i++) {%>
+                      <li>
+                        <a href="/post/<%= math[i]._id%>">
+                            <h2 class="lessons"><%= math[i].title%></h2>
+                        </a>
+                      </li>
+                    <% } %>   
+                    </ul>              </section>
+              <section class="col-4 col-6-medium col-12-xsmall">
+                  <span class="icon solid alt major fa-globe"></span>
+                  <h3>Social Studies</h3>
+                  <ul class="row list-unstyled">
+                    <% for(var i=0; i<social_studies.length; i++) {%>
+                      <li>
+                        <a href="/post/<%= social_studies[i]._id%>">
+                            <h2 class="lessons"><%= social_studies[i].title%></h2>
+                        </a>
+                      </li>
+                    <% } %>   
+                    </ul>              </section>
+              <section class="col-4 col-6-medium col-12-xsmall">
+                  <span class="icon solid alt major fa-palette"></span>
+                  <h3>Electives</h3>
+                  <ul class="row list-unstyled">
+                    <% for(var i=0; i<other.length; i++) {%>
+                      <li>
+                        <a href="/post/<%= other[i]._id%>">
+                            <h2 class="lessons"><%= other[i].title%></h2>
+                        </a>
+                      </li>
+                    <% } %>
+                    </ul>      
+          </div>
+        </div>
+     </section>
+     </div>
+     </div>
+    
+
+<%- include('partials/footer') -%>

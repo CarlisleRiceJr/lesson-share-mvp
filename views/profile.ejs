@@ -8,38 +8,60 @@
               <a href="/logout" class="col-3 btn btn-primary">Logout</a>
           </div>
           <div class="mt-5">
-            <h2>Add a post</h2>
+            <h2>Add a lesson</h2>
             <form action="/post/createPost" enctype="multipart/form-data" method="POST">
               <div class="mb-3">
                   <label for="title" class="form-label">Title</label>
                   <input type="text" class="form-control" id="title" name="title">
               </div>
               <div class="mb-3">
-                <label for="caption" class="form-label">Caption</label>
-                <textarea class="form-control" id="caption" name="caption"></textarea>
-              </div>
+
+              <label for="subject" class="form-label">Subject</label>
+              <select id="subject" name="subject">  
+                <option value="math">Math</option>
+                <option value="science">Science</option>
+                <option value="social_studies">Social Studies</option>
+                <option value="english">English</option>
+                <option value="special_education">Special Education</option>
+                <option value="other">Other</option>
+              </select>
+          </div>
+          <div class="mb-3">
+          <label for="grade" class="form-label">Grade:</label>
+            <select id="grade" name="grade">  
+              <option value="elementary">Elementary</option>
+              <option value="middleschool">Middle School</option>
+              <option value="highschool">High school</option>
+          </select>
+        </div>
               <div class="mb-3">
-                <label for="imgUpload" class="form-label">Image</label>
+                <label for="imgUpload" class="form-label">PDF</label>
                 <input type="file" class="form-control" id="imageUpload" name="file">
+              </div><div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea class="form-control" id="description" name="description"></textarea>
               </div>
               <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
             </form>
           </div>
       </div>
       <div class="col-6">
+        <h2>My Shared lessons</h2>
         <ul class="row list-unstyled">
-        <% for(var i=0; i<posts.length; i++) {%>
-          <li class="col-6 justify-content-between mt-5">
+        <% for(var i=0; i< posts.length; i++) {%>
+          <li class="col-12 justify-content-between mt-5">
             <a href="/post/<%= posts[i]._id%>">
-              <img class="img-fluid" src="<%= posts[i].image%>">
+              <h2><%= posts[i].title%></h2>
+              <iframe class="lesson-pdf" src="<%= posts[i].image%>"></iframe>
             </a>
           </li>
         <% } %>
         </ul>
-        <div class="row justify-content-center mt-5">
-          <a class="btn btn-primary" href="/feed">Return to Feed</a>
-        </div>  
-      </div>  
+        <a href="mylessons"><h3>All shared lessons</h3></a>
+       <!-- <div class="col-6">
+          <a href="/favorites"><h2>My Favorite lessons</h2></a>
+        </div> -->
+</div>   
     </div>
   </div>
 </div>
