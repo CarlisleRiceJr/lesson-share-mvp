@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const connectDB = require("./config/database");
 const app = express();
 const PORT = process.env.PORT || 3000
 const passport = require("passport");
@@ -8,7 +9,7 @@ const MongoStore = require("connect-mongo")(session);
 const methodOverride = require("method-override");
 const flash = require("express-flash");
 const logger = require("morgan");
-const connectDB = require("./config/database");
+
 const mainRoutes = require("./routes/main");
 const postRoutes = require("./routes/posts");
 
@@ -65,19 +66,4 @@ connectDB().then(() => {
   })
 })
 
-//Connect To Database
-//connectDB().then(() => {
-  //Server Running
-  //app.listen(process.env.PORT, () => {
-   // console.log(
-   //   `Server is running on ${process.env.PORT}, you better catch it!`
-   // );
-  //});
-//});
 
-
-
-//Server Running
-//app.listen(process.env.PORT, () => {
-//  console.log("Server is running, you better catch it!");
-//});
