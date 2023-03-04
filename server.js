@@ -1,6 +1,6 @@
 const express = require("express");
-const mongoose = require("mongoose");
 const app = express();
+const mongoose = require("mongoose");
 const passport = require("passport");
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
@@ -18,7 +18,7 @@ require("dotenv").config({ path: "./config/.env" });
 require("./config/passport")(passport);
 
 //Connect To Database
-connectDB();
+//connectDB();
 
 //Using EJS for views
 app.set("view engine", "ejs");
@@ -57,14 +57,17 @@ app.use(flash());
 app.use("/", mainRoutes);
 app.use("/post", postRoutes);
 
-//Connect to the database before listening
+//Connect To Database
 connectDB().then(() => {
-  app.listen(PORT, () => {
-      console.log("listening for requests");
-  })
-})
+  //Server Running
+  app.listen(process.env.PORT, () => {
+    console.log(
+      `Server is running on ${process.env.PORT}, you better catch it!`
+    );
+  });
+});
 
 //Server Running
 //app.listen(process.env.PORT, () => {
- // console.log("Server is running, you better catch it!");
+//  console.log("Server is running, you better catch it!");
 //});
