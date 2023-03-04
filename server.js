@@ -60,7 +60,7 @@ app.use("/post", postRoutes);
 
 //Connect to the database before listening
 connectDB().then(() => {
-  app.listen(process.env.PORT, () => {
+  app.listen(PORT, () => {
       console.log("listening for requests");
   })
 })
