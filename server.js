@@ -1,6 +1,6 @@
 const express = require("express");
-const app = express();
 const mongoose = require("mongoose");
+const app = express();
 const passport = require("passport");
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
@@ -57,8 +57,14 @@ app.use(flash());
 app.use("/", mainRoutes);
 app.use("/post", postRoutes);
 
+//Connect to the database before listening
+connectDB().then(() => {
+  app.listen(PORT, () => {
+      console.log("listening for requests");
+  })
+})
 
 //Server Running
-app.listen(process.env.PORT, () => {
-  console.log("Server is running, you better catch it!");
-});
+//app.listen(process.env.PORT, () => {
+ // console.log("Server is running, you better catch it!");
+//});
